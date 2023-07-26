@@ -242,5 +242,158 @@ public class duplicageusinghash {
 	    }
 
 	}
+***binarysearch***
+package First_one;
 
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class binartsearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc =new Scanner(System.in);
+		System.out.println("enter a number");
+		int x=sc.nextInt();
+		int[] arr=new int[x];
+		System.out.println("enter array alements");
+		
+		for (int i=0;i<x;i++)
+		{
+			int y=sc.nextInt();
+			arr[i]=y;
+					
+		}
+		System.out.println("enter the element you want to search");
+		int key=sc.nextInt();
+		 Arrays.sort(arr);
+		 int a=binarysearch(arr,0,arr.length-1,key);
+		 System.out.println(a);
+
+	}
+	public static  int binarysearch(int[] arr,int first,int last,int key)
+	{
+		
+		while(first<=last)
+		{
+			int mid=(first+last)/2;
+			if (arr[mid]<key)
+			{
+				first=mid+1;
+			}
+			else if(arr[mid]>key)
+			{
+				last=mid-1;
+			}
+			else
+			{
+				return mid;
+			}
+		}
+		return -1;
+	}
+
+}
+***wordfrequency***
+package First_one;
+
+//import java.util.Scanner;
+import java.util.HashMap;
+
+public class wordfrequency {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Scanner sc =new Scanner(System.in);
+	//	System.out.println("enter a string");
+		//String x=sc.next();
+		String x="hey bro how are you are";
+		HashMap <String,Integer> map=new HashMap<>();
+		String arr1[]=x.split(" ");
+		for(String word :arr1)
+		{
+			if(map.containsKey(word))
+			{
+				//int count=map.get((word)+1);
+				map.put(word,map.get(word)+1);
+			}
+			else
+			{
+				map.put(word,1);
+			}
+		}
+                System.out.println(map);
+            }
+        
+		
+	}
+***finding the missing number***
+package First_one;
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class missingnumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc =new Scanner(System.in);
+		System.out.println("enter a number");
+		int x=sc.nextInt();
+		int [] arr=new int[x];
+		int i=0;
+		for ( i=0;i<x;i++)
+		{
+			int y=sc.nextInt();
+			arr[i]=y;
+		}
+		Arrays.sort(arr);
+		int n=arr.length+1;
+		int sum=n*(n+1)/2;
+		int sum1=0;
+		
+		for ( i=0;i<x;i++)
+		{
+			sum1=sum1+arr[i];
+		}
+		int diff=sum-sum1;
+		System.out.println(diff);
+	}
+
+}
+
+***finding the triplets***
+
+package First_one;
+import java.util.Scanner;
+import java.lang.Math;
+
+public class alltriplets {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the number");
+		int x=sc.nextInt();
+		triplets(x);
+		
+
+	}
+	public static void triplets(int limit)
+	{
+		for (int a=1;a<=limit;a++)
+		{
+			for(int b=a+1;b<=limit;b++)
+			{
+				int csquare=a*a+b*b;
+				int c=(int)Math.sqrt(csquare);
+				if(c*c==csquare&& c<=limit)
+				{
+					System.out.println( a+ " ," + b +", " + c );
+				}
+			}
+		}
+	}
+
+}
 
